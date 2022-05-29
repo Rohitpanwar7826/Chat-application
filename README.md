@@ -11,4 +11,4 @@ Things you may want to cover:
 
 * Database creation : sqlite3
 
-* ...
+* Also require a redis-server to run action-cable
