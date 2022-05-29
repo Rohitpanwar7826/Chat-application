@@ -1,0 +1,51 @@
+<div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+      <div>
+          <img class="mx-auto h-12 w-auto" src="https://static.vecteezy.com/system/resources/thumbnails/003/693/973/small/gold-golden-r-wing-wings-alphabet-letter-logo-icon-with-classy-design-for-company-and-business-vector.jpg" alt="logo">
+          <h2 class="mt-2 text-center text-3xl font-extrabold text-gray-400">Sign Up to connect your world</h2>
+          <p class="mt-2 text-center text-sm text-gray-600 mt-2">
+            <a href= <%= sign_in_path%>  class=" font-large text-indigo-600 hover:text-indigo-500"> Already have an account </a>
+          </p>
+        </div>
+        <%= form_with  model: @users ,html:{class:"mt-8 space-y-6 text-white"} do |f| %>
+          <div class="rounded-md shadow-sm -space-y-px">
+
+            <div class="p-2">
+              <%= f.label :name_filed ,"Full Name"  %>
+              <%= f.text_field :name ,class:"appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+            </div>
+
+            <div class="p-2">
+              <%= f.label :email_filed ,"Email address"  %>
+              <%= f.text_field :email ,class:"appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+            </div>
+
+          <div class="p-2">
+              <%= f.label :password_lable ,"Password"  %>
+              <%= f.password_field :password ,class:"appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+          </div>
+          
+           <div class="p-2">
+              <%= f.label :password_confirmation_lable,"Password confirmation"  %>
+              <%= f.password_field :password_confirmation ,class:"appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+          </div>
+          
+          <div class="p-4">
+            <% if @users.errors.any? %>
+              
+              <% @users.errors.full_messages.each_with_index do |error,i| %>
+                <h3 class="text-red-500 text-center">  <%= "#{i+1} - #{error}" %> </h3>       
+              <% end %>         
+            
+            <%end%>
+
+          </div>
+            
+      </div>
+
+        <%= f.submit "Sign Up" ,class:"group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"  %>
+
+    
+      <%end%>
+  </div>
+</div>
